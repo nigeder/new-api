@@ -1,0 +1,12 @@
+{
+  "services": {
+    "api": {
+      "entrypoint": "main.go",
+      "routePrefix": "/api"
+    },
+    "web": {
+      "entrypoint": "web",
+      "routePrefix": "/"
+    }
+  }
+}
