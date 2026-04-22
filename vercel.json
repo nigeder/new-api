@@ -1,13 +1,15 @@
 {
+  "version": 2,
   "builds": [
     {
       "src": "Dockerfile",
-      "use": "@vercel/static-build",
-      "config": { "distDir": "dist" }
-    },
+      "use": "@vercel/docker"
+    }
+  ],
+  "routes": [
     {
-      "src": "main.go",
-      "use": "@vercel/go"
+      "src": "/(.*)",
+      "dest": "/"
     }
   ]
 }
