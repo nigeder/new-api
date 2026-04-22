@@ -1,12 +1,12 @@
 {
-  "services": {
-    "api": {
-      "entrypoint": "main.go",
-      "routePrefix": "/api"
-    },
+  "experimentalServices": {
     "web": {
       "entrypoint": "web",
       "routePrefix": "/"
+    },
+    "api": {
+      "entrypoint": "main.go",
+      "routePrefix": "/api"
     }
   }
 }
