@@ -1,12 +1,23 @@
 {
-  "experimentalServices": {
-    "web": {
-      "entrypoint": "web",
-      "routePrefix": "/"
+  "version": 2,
+  "builds": [
+    {
+      "src": "main.go",
+      "use": "@vercel/go",
+      "config": {
+        "buildCommand": "sed -i 's|logs|/tmp/logs|g' main.go && go build -o dist/main ."
+      }
     },
-    "api": {
-      "entrypoint": "main.go",
-      "routePrefix": "/api"
+    {
+      "src": "web/package.json",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "dist"
+      }
     }
-  }
+  ],
+  "routes": [
+    { "src": "/api/(.*)", "dest": "/main.go" },
+    { "src": "/(.*)", "dest": "/web/$1" }
+  ]
 }
