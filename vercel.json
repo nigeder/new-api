@@ -6,7 +6,10 @@
     },
     "api": {
       "entrypoint": "main.go",
-      "routePrefix": "/api"
+      "routePrefix": "/api",
+      "environment": {
+        "LOG_DIR": "/tmp"
+      }
     }
   }
 }
