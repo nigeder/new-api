@@ -1,15 +1,12 @@
 {
-  "version": 2,
-  "builds": [
-    {
-      "src": "Dockerfile",
-      "use": "@vercel/docker"
+  "services": {
+    "web": {
+      "entrypoint": "web",
+      "routePrefix": "/"
+    },
+    "api": {
+      "entrypoint": "main.go",
+      "routePrefix": "/api"
     }
-  ],
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "/"
-    }
-  ]
+  }
 }
